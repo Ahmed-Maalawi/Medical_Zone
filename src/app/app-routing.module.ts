@@ -21,6 +21,7 @@ const routes: Routes = [
       {path: 'Login', component: LoginComponent},
     ],
   },
+  {path: 'My-Account', component: LoginComponent},
   {path: '**', component: Page404Component}
 ];
 

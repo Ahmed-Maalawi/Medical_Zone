@@ -247,7 +247,7 @@
                            'slidesPerView': 1
                        }">
                             <div class="swiper-wrapper row cols-1 gutter-no">
-                                <div class="swiper-slide">
+                                <div class="swiper-slide" *ngFor="let item of Deals">
                                     <div class="product product-single row">
                                         <div class="col-md-6">
                                             <div class="product-gallery product-gallery-sticky product-gallery-vertical">
@@ -255,7 +255,7 @@
                                                     <div class="swiper-wrapper row cols-1 gutter-no">
                                                         <div class="swiper-slide">
                                                             <figure class="product-image">
-                                                                <img src="assets/images/demos/demo1/products/1-1-600x675.jpg" data-zoom-image="assets/images/demos/demo1/products/1-1-800x900.jpg" alt="Product Image" width="800" height="900" />
+                                                                <img [src]="item?.product_thambnail" data-zoom-image="assets/images/demos/demo1/products/1-1-800x900.jpg" [alt]="item?.product_name_en" width="800" height="900" />
                                                             </figure>
                                                         </div>
                                                         <div class="swiper-slide">
@@ -274,8 +274,8 @@
                                                             </figure>
                                                         </div>
                                                     </div>
-                                                    <button class="swiper-button-next"></button>
-                                                    <button class="swiper-button-prev"></button>
+                                                    <!-- <button class="swiper-button-next"></button>
+                                                    <button class="swiper-button-prev"></button> -->
                                                     <div class="product-label-group">
                                                         <label class="product-label label-discount">25%
                                                            Off </label>
@@ -294,7 +294,7 @@
                                                        }
                                                    }
                                                }">
-                                                    <div class="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
+                                                    <!-- <div class="product-thumbs swiper-wrapper row cols-lg-1 cols-4 gutter-sm">
                                                         <div class="product-thumb swiper-slide">
                                                             <img src="assets/images/demos/demo1/products/1-1-600x675.jpg" alt="Product thumb" width="60" height="68" />
                                                         </div>
@@ -307,7 +307,7 @@
                                                         <div class="product-thumb swiper-slide">
                                                             <img src="assets/images/demos/demo1/products/1-4-600x675.jpg" alt="Product thumb" width="60" height="68" />
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -3284,7 +3284,7 @@
                         </figure>
                         <h4 class="product-name">
                             <a href="product-default.html">Electric Rice-Cooker </a>
-                        </h4>
+                        </h4>src/app/component/home/home.component.html
                     </div>
                 </div>
                 <!-- End of Product Wrap -->
