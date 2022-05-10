@@ -7,6 +7,7 @@ import { ContactComponent } from './component/contact/contact.component';
 import { Page404Component } from './component/page404/page404.component';
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { LoginComponent } from './component/login/login.component';
+import { ItemDetailsComponent } from './component/item-details/item-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'Home', pathMatch: 'full'},
@@ -20,6 +21,13 @@ const routes: Routes = [
       {path: 'Wishlist', component: WishlistComponent},
       {path: 'Login', component: LoginComponent},
     ],
+  },
+  {
+    path: 'Shop',
+    children: [
+      {path: '', component: Page404Component},
+      {path: 'Products/:id', component: ItemDetailsComponent},
+    ]
   },
   {path: 'My-Account', component: LoginComponent},
   {path: '**', component: Page404Component}

@@ -13,4 +13,9 @@ export class CategoryService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/getCategories')
   }
+
+  getCategoryInfo(): Observable<any>
+  {
+    return this._HttpClient.get('')
+  }
 }

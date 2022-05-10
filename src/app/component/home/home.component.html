@@ -313,14 +313,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="product-details scrollable">
-                                                <h2 class="product-title mb-1"><a href="product-default.html">Coat Pool
-                                                       Comfort Jacket </a></h2>
+                                                <h2 class="product-title mb-1"><a [routerLink]="['/Shop/Products/', item.id]" >{{ item.product_name_en}} </a></h2>
 
                                                 <hr class="product-divider" />
 
-                                                <div class="product-price"><ins class="new-price ls-50">$150.00
+                                                <div class="product-price"><ins class="new-price ls-50">{{item.discount_price}}
                                                        -
-                                                       $180.00 </ins></div>
+                                                       EGP{{item.selling_price}} </ins></div>
 
                                                 <div class="product-countdown-container flex-wrap">
                                                     <label class="mr-2 text-default">Offer Ends In: </label>
@@ -339,10 +338,11 @@
                                                 <div class="product-form product-variation-form product-size-swatch mb-3">
                                                     <label class="mb-1">Size: </label>
                                                     <div class="flex-wrap d-flex align-items-center product-variations">
-                                                        <a href="#" class="size">Extra Large </a>
+                                                        <a *ngFor="let size of item?.product_size_en" class="size">{{size}}</a>
+                                                        <!-- <a href="#" class="size">Extra Large </a>
                                                         <a href="#" class="size">Large </a>
                                                         <a href="#" class="size">Medium </a>
-                                                        <a href="#" class="size">Small </a>
+                                                        <a href="#" class="size">Small </a> -->
                                                     </div>
                                                     <a href="#" class="product-variation-clean">Clean All </a>
                                                 </div>
@@ -3284,7 +3284,7 @@
                         </figure>
                         <h4 class="product-name">
                             <a href="product-default.html">Electric Rice-Cooker </a>
-                        </h4>src/app/component/home/home.component.html
+                        </h4>
                     </div>
                 </div>
                 <!-- End of Product Wrap -->
