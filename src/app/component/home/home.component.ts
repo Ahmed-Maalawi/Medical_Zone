@@ -8,22 +8,29 @@ Observable
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  featured: any;
+  // featured: any;
   Deals: any;
+
+  hotDeals: any[] = [];
+  sliders: any[] = [];
+  featured: any[] = [];
+  
   constructor(private _HomeService: HomeService) {
-    this.getDeals();
+    // this.getDeals();
     this.getFeatured();
-   }
+   
+    // this.getDeals();
 
-  ngOnInit(): void {}
+    _HomeService.getDealsHot().subscribe(
+      (response) => { this.hotDeals = response.data.items});
 
-  getDeals(): void
-  {
-    this._HomeService.getDealsHot()
-    .subscribe(
-      (response) => {this.Deals = response.data.items.slice(0, 3); console.log(this.Deals)},
-      (error) => {console.log(error)}
-    );
+    _HomeService.getSliders().subscribe(
+      (response) => {this.sliders = response.data.items;});
+   
+      _HomeService.getFeatured().subscribe(
+        (response) => {this.featured = response.data.items;});
+
+
   }
 
 
@@ -45,4 +52,19 @@ export class HomeComponent implements OnInit {
   {
     
   }
+  ngOnInit(): void {
+
+  }
+
+  // getDeals(): void
+  // {
+  //   this._HomeService.getDealsHot()
+  //   .subscribe(
+  //     (response) => {this.Deals = response.data.items.slice(0, 3); console.log(this.Deals)},
+  //     (error) => {console.log(error)}
+  //   );
+  // }
+
+
+
 }

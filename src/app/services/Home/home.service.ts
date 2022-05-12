@@ -26,4 +26,9 @@ export class HomeService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/discount')
   }
+  getSliders(): Observable<any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/sliders')
+  }
+  
 }
