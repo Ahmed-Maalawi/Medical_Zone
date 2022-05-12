@@ -8,10 +8,11 @@ Observable
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  featured: any;
   Deals: any;
   constructor(private _HomeService: HomeService) {
     this.getDeals();
+    this.getFeatured();
    }
 
   ngOnInit(): void {}
@@ -23,5 +24,25 @@ export class HomeComponent implements OnInit {
       (response) => {this.Deals = response.data.items.slice(0, 3); console.log(this.Deals)},
       (error) => {console.log(error)}
     );
+  }
+
+
+  getFeatured(): void
+  {
+    this._HomeService.getFeatured()
+    .subscribe(
+      (response) => {
+        this.featured = response.data.items.slice(0,10);
+        console.log(this.featured)
+      },
+      (error) => {
+
+      }
+    )
+  }
+
+  getDiscount(): void
+  {
+    
   }
 }

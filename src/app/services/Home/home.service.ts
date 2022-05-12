@@ -16,4 +16,14 @@ export class HomeService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/hotdeals');
   }
+
+  getFeatured(): Observable <any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/featured')
+  }
+
+  getDiscount(): Observable <any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/discount')
+  }
 }

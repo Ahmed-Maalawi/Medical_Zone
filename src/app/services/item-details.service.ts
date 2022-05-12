@@ -11,7 +11,7 @@ export class ItemDetailsService {
 
   getProductDetails(id: number): Observable<any>
   {
-    return this._HttpClient.get(`https://medicazone.online/api/zone/product-details/${id}`)
+    return this._HttpClient.get(`http://medicazone.online/api/zone/product-details/${id}`)
   }
 }
 

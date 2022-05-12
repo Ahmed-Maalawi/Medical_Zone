@@ -239,7 +239,7 @@
             <div class="col-lg-9 mb-4">
                 <div class="single-product h-100 br-sm">
                     <h4 class="title-sm title-underline font-weight-bolder ls-normal">
-                       Deals Hot __ The Day
+                        Deals Hot Of The Day
                     </h4>
                     <div class="swiper">
                         <div class="swiper-container swiper-theme nav-top swiper-nav-lg" data-swiper-options="{
@@ -865,12 +865,11 @@
         <div class="tab-content product-wrapper appear-animate">
             <div class="tab-pane active pt-4" id="tab1-1">
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-                    <div class="product-wrap">
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
-                                    <img src="assets/images/demos/demo1/products/3-1-1.jpg" alt="Product" width="300" height="338" />
-                                    <img src="assets/images/demos/demo1/products/3-1-2.jpg" alt="Product" width="300" height="338" />
+                                    <img [src]="" [alt]="" width="300" height="338" />
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
@@ -880,7 +879,7 @@
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <h4 class="product-name"><a href="product-default.html">Classic Hat </a></h4>
+                                    <h4 class="product-name"><a> </a></h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
                                         <span class="ratings" style="width: 60%;"></span>
@@ -893,8 +892,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -922,12 +921,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <div class="product-wrap" *ngFor="let item of featured">
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="assets/images/demos/demo1/products/3-3.jpg" alt="Product" width="300" height="338" />
+                                <a [routerLink]="['/Home/Products/', item.id]">
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
@@ -935,33 +934,34 @@
                                     <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"></a>
                                     <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
                                 </div>
-                                <div class="product-label-group">
+                                <div class="product-label-group" *ngIf="item?.discount_price != null">
                                     <label class="product-label label-discount">7% Off </label>
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <h4 class="product-name"><a href="product-default.html">Multi Funtional Apple
-                                       iPhone </a></h4>
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
                                         <span class="ratings" style="width: 100%;"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product-default.html" class="rating-reviews">(5 reviews) </a>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
                                 </div>
-                                <div class="product-price">
-                                    <ins class="new-price">136.26 </ins>
-                                    <del class="old-price">$145.90 </del>
+                                <div class="product-price" *ngIf="item?.discount_price != null">
+                                    <ins class="new-price">{{ item?.discount_price }} </ins>
+                                    <del class="old-price">EGP {{ item?.selling_price }} </del>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price == null">
+                                    <ins class="new-price">{{ item?.selling_price }} </ins>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-wrap">
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
                                     <img src="assets/images/demos/demo1/products/3-4-1.jpg" alt="Product" width="300" height="338" />
-                                    <img src="assets/images/demos/demo1/products/3-4-2.jpg" alt="Product" width="300" height="338" />
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
@@ -985,8 +985,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1018,8 +1018,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1048,8 +1048,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1077,8 +1077,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1107,8 +1107,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1136,8 +1136,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1164,7 +1164,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- End of Tab Pane -->
@@ -1780,12 +1780,11 @@
             <!-- End of Tab Pane -->
             <div class="tab-pane pt-4" id="tab1-4">
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
-                    <div class="product-wrap">
+                    <div class="product-wrap" *ngFor="let item of featured">
                         <div class="product text-center">
                             <figure class="product-media">
-                                <a href="product-default.html">
-                                    <img src="assets/images/demos/demo1/products/3-4-1.jpg" alt="Product" width="300" height="338" />
-                                    <img src="assets/images/demos/demo1/products/3-4-2.jpg" alt="Product" width="300" height="338" />
+                                <a [routerLink]="['/Home/Products/', item.id]">
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
@@ -1793,24 +1792,30 @@
                                     <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quickview"></a>
                                     <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
                                 </div>
+                                <div class="product-label-group" *ngIf="item?.discount_price != null">
+                                    <label class="product-label label-discount">7% Off </label>
+                                </div>
                             </figure>
                             <div class="product-details">
-                                <h4 class="product-name"><a href="product-default.html">Fashion Blue Towel </a>
-                                </h4>
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
                                         <span class="ratings" style="width: 100%;"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a href="product-default.html" class="rating-reviews">(8 reviews) </a>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
                                 </div>
-                                <div class="product-price">
-                                    <ins class="new-price">$26.55 - $29.99 </ins>
+                                <div class="product-price" *ngIf="item?.discount_price != null">
+                                    <ins class="new-price">{{ item?.discount_price }} </ins>
+                                    <del class="old-price">EGP {{ item?.selling_price }} </del>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price == null">
+                                    <ins class="new-price">{{ item?.selling_price }} </ins>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-wrap">
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1837,8 +1842,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1866,8 +1871,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1896,8 +1901,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1925,8 +1930,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1958,8 +1963,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1991,8 +1996,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -2020,8 +2025,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -2050,8 +2055,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-wrap">
+                    </div> -->
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -2079,7 +2084,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- End of Tab Pane -->

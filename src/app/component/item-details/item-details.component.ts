@@ -10,12 +10,13 @@ import { ItemDetailsService } from 'src/app/services/item-details.service';
 export class ItemDetailsComponent implements OnInit {
   currentProduct: any;
   AllAtributes: any;
+  relatedProduct: any;
   constructor(private _ActivatedRoute: ActivatedRoute, private _ItemDetailsService: ItemDetailsService) { }
 
   ngOnInit(): void {
     this.getProduct();
-    this.AllAtributes['product'] = this.currentProduct;
-    this.AllAtributes['brandInfo'] = this.getCategory(this.currentProduct.category_id);
+    // this.AllAtributes['product'] = this.currentProduct;
+    // this.AllAtributes['brandInfo'] = this.getCategory(this.currentProduct.category_id);
   }
 
 
@@ -24,9 +25,12 @@ export class ItemDetailsComponent implements OnInit {
     let id = this._ActivatedRoute.snapshot.params['id'];
     this._ItemDetailsService.getProductDetails(id)
     .subscribe((res) => {
-      this.currentProduct = res.data.items[0];
+
+      this.currentProduct = res.data.product[0];
+      this.relatedProduct = res.data.related.slice(0,3);
       console.log(this.currentProduct)
       this.getCategory(this.currentProduct.category_id);
+      
     },
     (error) => {console.log(error);}
     );
