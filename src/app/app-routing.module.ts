@@ -1,3 +1,4 @@
+import { ProfileComponent } from './component/profile/profile.component';
 import { CartComponent } from './component/cart/cart.component';
 import { AboutComponent } from './component/about/about.component';
 import { HomeComponent } from './component/home/home.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
       {path: 'Products/:id', component: ItemDetailsComponent},
     ]
   },
-  {path: 'My-Account', component: LoginComponent},
+  {path: 'My-Account', component: ProfileComponent},
   {path: '**', component: Page404Component}
 ];
 
