@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private _CookieService:CookieService,
     private _Router:Router
     ) { }
-  
+
   registerError: any[] = [];
   ngOnInit(): void {
   }
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null,  Validators.required),
-    
+
   });
 
 
@@ -49,7 +49,8 @@ export class LoginComponent implements OnInit {
           console.log(response.access_token);
           this._CookieService.set('token', response.access_token);
           this.LoginError = '';
-          this._Router.navigate(['/Home'])
+          this._Router.navigate(['/Home']);
+
         }
       },
       (error) => {
