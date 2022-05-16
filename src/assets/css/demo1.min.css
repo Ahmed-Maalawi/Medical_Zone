@@ -7347,9 +7347,9 @@ textarea {
   -webkit-transition: opactiy 0.3s ease-out;
   transition: opactiy 0.3s ease-out;
 }
-.mfp-bg.mfp-ready.mfp-fade {
-  opacity: 0.4;
-}
+/*.mfp-bg.mfp-ready.mfp-fade {*/
+/*  opacity: 0.4;*/
+/*}*/
 .mfp-bg.mfp-remove {
   opacity: 0;
 }
