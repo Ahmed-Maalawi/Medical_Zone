@@ -10,7 +10,7 @@ Observable
 export class HomeComponent implements OnInit {
   // featured: any;
   Deals: any;
-
+  brands:any[] = [];
   hotDeals: any[] = [];
   sliders: any[] = [];
   featured: any[] = [];
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private _HomeService: HomeService) {
     // this.getDeals();
     this.getFeatured();
-
+   this.getBrands();
     // this.getDeals();
 
     _HomeService.getDealsHot().subscribe(
@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
 
   }
 
+  ngOnInit(): void {
+
+  }
 
   getFeatured(): void
   {
@@ -40,7 +43,6 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (response) => {
         this.featured = response.data.items.slice(0,10);
-        // console.log(this.featured)
       },
       (error) => {
 
@@ -52,9 +54,20 @@ export class HomeComponent implements OnInit {
   {
 
   }
-  ngOnInit(): void {
 
+  getBrands():void
+  {
+    this._HomeService.getBrands()
+    .subscribe(
+      (response) => {
+        this.brands = response.data.items;
+      },
+      (error) => {
+        console.log(error.error.error)
+      }
+    )
   }
+
 
   // getDeals(): void
   // {

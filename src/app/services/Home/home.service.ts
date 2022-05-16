@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core'; 
+import { Injectable } from '@angular/core';
 
 
 
@@ -26,9 +26,14 @@ export class HomeService {
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/discount')
   }
+
   getSliders(): Observable<any>
   {
     return this._HttpClient.get('https://medicazone.online/api/zone/sliders')
   }
-  
+
+  getBrands(): Observable<any>
+  {
+    return this._HttpClient.get('https://medicazone.online/api/zone/getBrands')
+  }
 }

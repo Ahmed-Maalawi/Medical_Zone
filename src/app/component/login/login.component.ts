@@ -49,8 +49,7 @@ export class LoginComponent implements OnInit {
           console.log(response.access_token);
           this._CookieService.set('token', response.access_token);
           this.LoginError = '';
-          this._Router.navigate(['/Home']);
-
+          this._Router.navigate(['/Home'])
         }
       },
       (error) => {
