@@ -3,7 +3,7 @@
             <!-- Start of Breadcrumb -->
             <nav class="breadcrumb-nav container">
                 <ul class="breadcrumb bb-no">
-                    <li><a href="demo1.html">Home </a></li>
+                    <li><a routerLinke="/">Home </a></li>
                     <li>Products </li>
                 </ul>
                 <ul class="product-nav list-style-none">
@@ -115,7 +115,7 @@
                                         <h1 class="product-title">{{currentProduct?.product_name_en}}</h1>
                                         <div class="product-bm-wrapper">
                                             <figure class="brand">
-                                                <img [src]="'https://medicazone.online/' + currentProduct.brand.brand_image" [alt]="" width="102" height="48" />
+                                                <img [src]="currentProduct.brand.brand_image" [alt]="" width="102" height="48" />
                                             </figure>
                                             <div class="product-meta">
                                                 <div class="product-categories">

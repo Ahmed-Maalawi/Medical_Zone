@@ -7347,9 +7347,9 @@ textarea {
   -webkit-transition: opactiy 0.3s ease-out;
   transition: opactiy 0.3s ease-out;
 }
-.mfp-bg.mfp-ready.mfp-fade {
-  opacity: 0.4;
-}
+/*.mfp-bg.mfp-ready.mfp-fade {*/
+/*  opacity: 0.4;*/
+/*}*/
 .mfp-bg.mfp-remove {
   opacity: 0;
 }
@@ -15644,4 +15644,19 @@ aside .sp-sidebar-banner span {
         -ms-flex-pack: center;
             justify-content: center;
   }
+}
+
+.login-page .login-popup {
+  margin: 4.2rem auto 5rem;
+  -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+.login-page .login-popup {
+  margin: 4.2rem auto 5rem;
+  -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+}
+.login-popup {
+  max-width: 50rem;
+  padding: 3.3rem 5rem 2.6rem;
 }

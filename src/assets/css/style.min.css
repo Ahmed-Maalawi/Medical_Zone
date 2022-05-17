@@ -7054,8 +7054,8 @@ blockquote {
 -----------------------------------------*/
 @font-face {
   font-family: "wolmart";
-  src: url("../fonts/wolmart_31d12241.eot");
-  src: url("../fonts/wolmart_31d12241.woff") format("woff"), url("../fonts/wolmart_31d12241.eot#iefix") format("embedded-opentype"), url("../fonts/wolmart_31d12241.ttf") format("truetype"), url("../fonts/wolmart_31d12241.svg#wolmart") format("svg");
+  src: url("../fonts/wolmart87d5.eot?png09e");
+  src: url("../fonts/wolmart87d5.woff?png09e") format("woff"), url("../fonts/wolmart87d5.eot?png09e#iefix") format("embedded-opentype"), url("../fonts/wolmart87d5.ttf?png09e") format("truetype"), url("../fonts/wolmart87d5.svg?png09e#wolmart") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -7075,556 +7075,557 @@ blockquote {
 }
 
 .w-icon-shipping:before {
-  content: "î¡½";
+  content: "";
 }
 
 .w-icon-truck2:before {
-  content: "î¤€";
+  content: "";
 }
 
 .w-icon-comments-solid:before {
-  content: "î¤";
+  content: "";
 }
 
 .w-icon-heart-full:before {
-  content: "î¤‚";
+  content: "";
 }
 
 .w-icon-instagram:before {
-  content: "î¤ƒ";
+  content: "";
 }
 
 .w-icon-youtube:before {
-  content: "î¤„";
+  content: "";
 }
 
 .w-icon-pinterest:before {
-  content: "î¤…";
+  content: "";
 }
 
 .w-icon-pinterest-p:before {
-  content: "î¤†";
+  content: "";
 }
 
 .w-icon-google:before {
-  content: "î¤‡";
+  content: "";
 }
 
 .w-icon-twitter:before {
-  content: "î¤ˆ";
+  content: "";
 }
 
 .w-icon-facebook:before {
-  content: "î¤‰";
+  content: "";
 }
 
 .w-icon-minus:before {
-  content: "î¤Ž";
+  content: "";
 }
 
 .w-icon-plus:before {
-  content: "î¤";
+  content: "";
 }
 
 .w-icon-angle-down:before {
-  content: "î¤";
+  content: "";
 }
 
 .w-icon-angle-up:before {
-  content: "î¤‘";
+  content: "";
 }
 
 .w-icon-angle-left:before {
-  content: "î¤’";
+  content: "";
 }
 
 .w-icon-angle-right:before {
-  content: "î¤“";
+  content: "";
 }
 
 .w-icon-hamburger:before {
-  content: "î¥›";
+  content: "";
 }
 
 .w-icon-star-square-full:before {
-  content: "î¥œ";
+  content: "";
 }
 
 .w-icon-exclamation-triangle:before {
-  content: "î¥";
+  content: "";
 }
 
 .w-icon-times-circle:before {
-  content: "î¥ž";
+  content: "";
 }
 
 .w-icon-cog:before {
-  content: "î¥Ÿ";
+  content: "";
 }
 
 .w-icon-star-square:before {
-  content: "î¥ ";
+  content: "";
 }
 
 .w-icon-exclamation-circle:before {
-  content: "î¥¡";
+  content: "";
 }
 
 .w-icon-check-solid:before {
-  content: "î¥©";
+  content: "";
 }
 
 .w-icon-check:before {
-  content: "î¥ª";
+  content: "";
 }
 
 .w-icon-comments:before {
-  content: "î¥«";
+  content: "";
 }
 
 .w-icon-envelop:before {
-  content: "î¥¬";
+  content: "";
 }
 
 .w-icon-envelop2:before {
-  content: "î¥­";
+  content: "";
 }
 
 .w-icon-youtube-solid:before {
-  content: "î¥®";
+  content: "";
 }
 
 .w-icon-times-solid:before {
-  content: "î¥¯";
+  content: "";
 }
 
 .w-icon-call:before {
-  content: "î¤¸";
+  content: "";
 }
 
 .w-icon-call2:before {
-  content: "î¤¹";
+  content: "";
 }
 
 .w-icon-cart:before {
-  content: "î¤º";
+  content: "";
 }
 
 .w-icon-category:before {
-  content: "î¤»";
+  content: "";
 }
 
 .w-icon-bars:before {
-  content: "î¤¼";
+  content: "";
 }
 
 .w-icon-compare:before {
-  content: "î¤½";
+  content: "";
 }
 
 .w-icon-computer:before {
-  content: "î¤¾";
+  content: "";
 }
 
 .w-icon-electronics:before {
-  content: "î¤¿";
+  content: "";
 }
 
 .w-icon-tshirt:before {
-  content: "î¥€";
+  content: "";
 }
 
 .w-icon-account:before {
-  content: "î¥";
+  content: "";
 }
 
 .w-icon-search2:before {
-  content: "î¥‚";
+  content: "";
 }
 
 .w-icon-android:before {
-  content: "î¥„";
+  content: "";
 }
 
 .w-icon-ios:before {
-  content: "î¥…";
+  content: "";
 }
 
 .w-icon-art-class:before {
-  content: "î¥†";
+  content: "";
 }
 
 .w-icon-bag:before {
-  content: "î¥‡";
+  content: "";
 }
 
 .w-icon-basketball:before {
-  content: "î¥‰";
+  content: "";
 }
 
 .w-icon-bathtub:before {
-  content: "î¥Š";
+  content: "";
 }
 
 .w-icon-bed:before {
-  content: "î¥‹";
+  content: "";
 }
 
 .w-icon-birthday-cake:before {
-  content: "î¥Œ";
+  content: "";
 }
 
 .w-icon-bow:before {
-  content: "î¥";
+  content: "";
 }
 
 .w-icon-bridge-lamp:before {
-  content: "î¥Ž";
+  content: "";
 }
 
 .w-icon-calendar:before {
-  content: "î¥";
+  content: "";
 }
 
 .w-icon-camera:before {
-  content: "î¥";
+  content: "";
 }
 
 .w-icon-cart2:before {
-  content: "î¥‘";
+  content: "";
 }
 
 .w-icon-dots-circle:before {
-  content: "î¥’";
+  content: "";
 }
 
 .w-icon-chat:before {
-  content: "î¥“";
+  content: "";
 }
 
 .w-icon-desktop:before {
-  content: "î¥”";
+  content: "";
 }
 
 .w-icon-dish:before {
-  content: "î¥•";
+  content: "";
 }
 
 .w-icon-display:before {
-  content: "î¥–";
+  content: "";
 }
 
 .w-icon-download:before {
-  content: "î¥—";
+  content: "";
 }
 
 .w-icon-envelop-closed:before {
-  content: "î¥˜";
+  content: "";
 }
 
 .w-icon-fax:before {
-  content: "î¥™";
+  content: "";
 }
 
 .w-icon-furniture:before {
-  content: "î¥š";
+  content: "";
 }
 
 .w-icon-gamepad:before {
-  content: "î¥¢";
+  content: "";
 }
 
 .w-icon-gift:before {
-  content: "î¥£";
+  content: "";
 }
 
 .w-icon-grid:before {
-  content: "î¥¤";
+  content: "";
 }
 
 .w-icon-headphone:before {
-  content: "î¥¥";
+  content: "";
 }
 
 .w-icon-heartbeat:before {
-  content: "î¥¦";
+  content: "";
 }
 
 .w-icon-home:before {
-  content: "î¥§";
+  content: "";
 }
 
 .w-icon-honour:before {
-  content: "î¥¨";
+  content: "";
 }
 
 .w-icon-hotline:before {
-  content: "î¥°";
+  content: "";
 }
 
 .w-icon-ice-cream:before {
-  content: "î¥±";
+  content: "";
 }
 
 .w-icon-list:before {
-  content: "î¥²";
+  content: "";
 }
 
 .w-icon-mobile:before {
-  content: "î¥µ";
+  content: "";
 }
 
 .w-icon-money:before {
-  content: "î¥¶";
+  content: "";
 }
 
 .w-icon-motocycle:before {
-  content: "î¥·";
+  content: "";
 }
 
 .w-icon-net-world:before {
-  content: "î¥¸";
+  content: "";
 }
 
 .w-icon-orders:before {
-  content: "î¥¹";
+  content: "";
 }
 
 .w-icon-phone:before {
-  content: "î¥º";
+  content: "";
 }
 
 .w-icon-return:before {
-  content: "î¥»";
+  content: "";
 }
 
 .w-icon-rice-cooker:before {
-  content: "î¥¼";
+  content: "";
 }
 
 .w-icon-ruby:before {
-  content: "î¥½";
+  content: "";
 }
 
 .w-icon-search:before {
-  content: "î¥¾";
+  content: "";
 }
 
 .w-icon-search-minus:before {
-  content: "î¥¿";
+  content: "";
 }
 
 .w-icon-search-plus:before {
-  content: "î¦€";
+  content: "";
 }
 
 .w-icon-service:before {
-  content: "î¦";
+  content: "";
 }
 
 .w-icon-shopify:before {
-  content: "î¦‚";
+  content: "";
 }
 
 .w-icon-sofa:before {
-  content: "î¦ƒ";
+  content: "";
 }
 
 .w-icon-sport:before {
-  content: "î¦„";
+  content: "";
 }
 
 .w-icon-star:before {
-  content: "î¦…";
+  content: "";
 }
 
 .w-icon-star-full:before {
-  content: "î¦†";
+  content: "";
 }
 
 .w-icon-table:before {
-  content: "î¦‡";
+  content: "";
 }
 
 .w-icon-table2:before {
-  content: "î¦ˆ";
+  content: "";
 }
 
 .w-icon-truck:before {
-  content: "î¦‰";
+  content: "";
 }
 
 .w-icon-tshirt2:before {
-  content: "î¦Š";
+  content: "";
 }
 
 .w-icon-user:before {
-  content: "î¦‹";
+  content: "";
 }
 
 .w-icon-wallet:before {
-  content: "î¦Œ";
+  content: "";
 }
 
 .w-icon-heart:before {
-  content: "î¦";
+  content: "";
 }
 
 .w-icon-gift2:before {
-  content: "î¤Š";
+  content: "";
 }
 
 .w-icon-dashboard:before {
-  content: "î¤‹";
+  content: "";
 }
 
 .w-icon-power-off:before {
-  content: "î¤Œ";
+  content: "";
 }
 
 .w-icon-wallet2:before {
-  content: "î¤";
+  content: "";
 }
 
 .w-icon-products:before {
-  content: "î¤”";
+  content: "";
 }
 
 .w-icon-reports:before {
-  content: "î¤•";
+  content: "";
 }
 
 .w-icon-return2:before {
-  content: "î¤–";
+  content: "";
 }
 
 .w-icon-reviews:before {
-  content: "î¤—";
+  content: "";
 }
 
 .w-icon-return3:before {
-  content: "î¤˜";
+  content: "";
 }
 
 .w-icon-cog2:before {
-  content: "î¤™";
+  content: "";
 }
 
 .w-icon-ship-station:before {
-  content: "î¤š";
+  content: "";
 }
 
 .w-icon-social:before {
-  content: "î¤›";
+  content: "";
 }
 
 .w-icon-store-seo:before {
-  content: "î¤œ";
+  content: "";
 }
 
 .w-icon-store:before {
-  content: "î¤";
+  content: "";
 }
 
 .w-icon-support:before {
-  content: "î¤ž";
+  content: "";
 }
 
 .w-icon-tools:before {
-  content: "î¤Ÿ";
+  content: "";
 }
 
 .w-icon-vendor-store:before {
-  content: "î¤ ";
+  content: "";
 }
 
 .w-icon-verification:before {
-  content: "î¤¡";
+  content: "";
 }
 
 .w-icon-visit:before {
-  content: "î¤¢";
+  content: "";
 }
 
 .w-icon-withdraw:before {
-  content: "î¤£";
+  content: "";
 }
 
 .w-icon-rotate-3d:before {
-  content: "î¤¤";
+  content: "";
 }
 
 .w-icon-movie:before {
-  content: "î¤¥";
+  content: "";
 }
 
 .w-icon-prev:before {
-  content: "î¤¦";
+  content: "";
 }
 
 .w-icon-play:before {
-  content: "î¤§";
+  content: "";
 }
 
 .w-icon-next:before {
-  content: "î¤¨";
+  content: "";
 }
 
 .w-icon-map-marker:before {
-  content: "î¤©";
+  content: "";
 }
 
 .w-icon-long-arrow-down:before {
-  content: "î¤ª";
+  content: "";
 }
 
 .w-icon-long-arrow-left:before {
-  content: "î¤«";
+  content: "";
 }
 
 .w-icon-long-arrow-right:before {
-  content: "î¤¬";
+  content: "";
 }
 
 .w-icon-long-arrow-up:before {
-  content: "î¤­";
+  content: "";
 }
 
 .w-icon-comment:before {
-  content: "î¤®";
+  content: "";
 }
 
 .w-icon-envelop3:before {
-  content: "î¤°";
+  content: "";
 }
 
 .w-icon-logout:before {
-  content: "î¤±";
+  content: "";
 }
 
 .w-icon-envelop4:before {
-  content: "î¤²";
+  content: "";
 }
 
 .w-icon-orders2:before {
-  content: "î¤³";
+  content: "";
 }
 
 .w-icon-quote:before {
-  content: "î¤´";
+  content: "";
 }
 
 .w-icon-sale:before {
-  content: "î¤µ";
+  content: "";
 }
 
 .w-icon-heart2:before {
-  content: "î¤¶";
+  content: "";
 }
 
 .w-icon-zoom:before {
-  content: "î¤·";
+  content: "";
 }
+
 
 /*------------------------
     Form
@@ -9190,9 +9191,9 @@ img.mfp-img {
   -webkit-transition: opactiy 0.3s ease-out;
   transition: opactiy 0.3s ease-out;
 }
-.mfp-bg.mfp-ready.mfp-fade {
-  opacity: 0.4;
-}
+/*.mfp-bg.mfp-ready.mfp-fade {*/
+/*  opacity: 0.4;*/
+/*}*/
 .mfp-bg.mfp-remove {
   opacity: 0;
 }

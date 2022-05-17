@@ -1,5 +1,6 @@
 import { CategoryService } from './../../services/Category/category.service';
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../../services/Register/register.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   categories:any;
 
-  constructor(private CategoryService:CategoryService) 
+  constructor(private CategoryService:CategoryService, private _RegisterService:RegisterService) 
   {
     this.getCategories();
   }
@@ -27,6 +28,16 @@ export class HeaderComponent implements OnInit {
       },
       (error) => {console.log(error)}
     )
+  }
+
+  islogin(): boolean
+  {
+    return this._RegisterService.isLogin();
+  }
+
+  logout():void
+  {
+    this._RegisterService.logout();
   }
 
 }

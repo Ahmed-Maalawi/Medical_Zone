@@ -35,11 +35,12 @@
                 <span class="divider d-lg-show"></span>
                 <a href="blog.html" class="d-lg-show">Blog</a>
                 <a routerLink="/Home/Contact" class="d-lg-show">Contact Us</a>
-                <a routerLink="/My-Account" class="d-lg-show">My Account</a>
-                <a routerLink="/Home/Login" class="d-lg-show login sign-in"><i
+                <a routerLink="/My-Account" *ngIf="islogin()" class="d-lg-show">My Account</a>
+                <a *ngIf="!islogin()"  routerLink="/Home/Login" class="d-lg-show login sign-in"><i
                         class="w-icon-account"></i>Sign In</a>
                 <span class="delimiter d-lg-show">/</span>
-                <a routerLink="/Home/Login" class="ml-0 d-lg-show login register">Register</a>
+                <a *ngIf="!islogin()" routerLink="/Home/Login" class="ml-0 d-lg-show login register">Register</a>
+                <a *ngIf="islogin()" (click)="logout()" href="#" class="ml-0 d-lg-show login register">Logout</a>
             </div>
         </div>
     </div>
@@ -81,14 +82,14 @@
                     <div class="call-info d-lg-show">
                         <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
                             <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
-                        <a href="tel:#" class="phone-number font-weight-bolder ls-50">0(800)123-456</a>
+                        <a href="tel:0201060838210" class="phone-number font-weight-bolder ls-50">+201060838210</a>
                     </div>
                 </div>
                 <a routerLink="/Home/Wishlist" class="wishlist label-down link d-xs-show">
                     <i class="w-icon-heart"></i>
                     <span class="wishlist-label d-lg-show">Wishlist</span>
                 </a>
-                <a class="compare label-down link d-xs-show" href="compare.html">
+                <a class="compare label-down link d-xs-show" href="/">
                     <i class="w-icon-compare"></i>
                     <span class="compare-label d-lg-show">Compare</span>
                 </a>
@@ -585,7 +586,7 @@
                                 <a routerLink="/Home" routerLinkActive="active">Home</a>
                             </li>
                             <li>
-                                <a href="shop-banner-sidebar.html">Shop</a>
+                                <a href="/">Shop</a>
 
                                 <!-- Start of Megamenu -->
                                 <ul class="megamenu">

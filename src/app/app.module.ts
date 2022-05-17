@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { ContactComponent } from './component/contact/contact.component';
 import { Page404Component } from './component/page404/page404.component';
 import { LoginComponent } from './component/login/login.component';
 import { ItemDetailsComponent } from './component/item-details/item-details.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ItemDetailsComponent } from './component/item-details/item-details.comp
     ContactComponent,
     Page404Component,
     LoginComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { ItemDetailsComponent } from './component/item-details/item-details.comp
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
