@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +15,15 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { Page404Component } from './component/page404/page404.component';
-import { LoginComponent } from './component/login/login.component';
 import { ItemDetailsComponent } from './component/item-details/item-details.component';
 import { ProfileComponent } from './component/profile/profile.component';
+// import {authReducer} from "../store/reducers/auth.reducer";
+import { AuthComponent } from './component/auth/auth.component';
+import {authReducer} from "../store/reducers/auth.reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {AuthEffects} from "../store/effects/auth.effects";
+// import {EffectsModule} from "@ngrx/effects";
+// import {AuthEffects} from "../store/effects/auth.effects";
 
 @NgModule({
   declarations: [
@@ -29,15 +36,17 @@ import { ProfileComponent } from './component/profile/profile.component';
     AboutComponent,
     ContactComponent,
     Page404Component,
-    LoginComponent,
     ItemDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ auth: authReducer}),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     CookieService

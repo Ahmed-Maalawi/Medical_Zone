@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class RegisterService {
 
   constructor(private _HttpClient: HttpClient, private _CookieService:CookieService) { }
-  currentUser:any;
+  // currentUser:any;
  // currentUser = {
  //  "id": "",
  //  "name": "",
@@ -24,21 +24,12 @@ export class RegisterService {
  //  "profile_photo_url": ""
  // }
 
- Login(Login:FormGroup): Observable<any>
- {
-   return this._HttpClient.post('https://medicazone.online/api/auth/login', Login)
- }
 
 
- Register(Register:FormGroup): Observable<any>
- {
-   return this._HttpClient.post('https://medicazone.online/api/auth/register', Register)
- }
 
- isLogin(): boolean
- {
-   return this._CookieService.check('token')
- }
+ //
+ //
+
 
  // getUserData(token: string): Observable<any>
  // {
@@ -50,8 +41,5 @@ export class RegisterService {
  //  return this._HttpClient.get('https://medicazone.test/api/auth/user-profile', { headers: headers });
  // }
 
- logout(): void
- {
-   this._CookieService.delete('token')
- }
+
 }

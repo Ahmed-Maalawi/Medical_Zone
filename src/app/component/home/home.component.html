@@ -958,7 +958,7 @@
                                         title="Add to Compare"></a>
                                 </div>
                                 <div class="product-label-group" *ngIf="item?.discount_price != null">
-                                    <label class="product-label label-discount">7% Off </label>
+                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price)}}% Off </label>
                                 </div>
                             </figure>
                             <div class="product-details">
@@ -971,11 +971,11 @@
                                     <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
                                 </div>
                                 <div class="product-price" *ngIf="item?.discount_price != null">
-                                    <ins class="new-price">{{ item?.discount_price }} </ins>
-                                    <del class="old-price">EGP {{ item?.selling_price }} </del>
+                                    <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                                    <del class="old-price">{{ item?.selling_price }} </del>
                                 </div>
                                 <div class="product-price" *ngIf="item?.discount_price == null">
-                                    <ins class="new-price">{{ item?.selling_price }} </ins>
+                                    <ins class="new-price"> EGP {{ item?.selling_price }} </ins>
                                 </div>
                             </div>
                         </div>
@@ -1229,42 +1229,79 @@
 
 
                     <!-- Best Seller -->
-
-                <div class="product-wrap"  *ngFor="let item of hotDeals |slice:0:10">
-
+                  <div class="product-wrap" *ngFor="let item of hotDeals |slice:0:10">
                     <div class="product text-center">
-                        <figure class="product-media">
-                            <a [routerLink]="['/Shop/Products/', item.id]">
-                                <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                    height="338" />
-                                <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                    height="338" />
-                            </a>
-                            <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                    title="Add to wishlist"></a>
-                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                    title="Quickview"></a>
-                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                    title="Add to Compare"></a>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>
-                            <div class="ratings-container">
-                                <div class="ratings-full">
-                                    <span class="ratings" style="width: 60%;"></span>
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>
-                            </div>
-                            <div class="product-price">
-                                <ins class="new-price">EGP{{item.selling_price}} </ins>
-                            </div>
+                      <figure class="product-media">
+                        <a [routerLink]="['/Home/Products/', item.id]">
+                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
+                        </a>
+                        <div class="product-action-vertical">
+                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                             title="Add to wishlist"></a>
+                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                             title="Quickview"></a>
+                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                             title="Add to Compare"></a>
                         </div>
+                        <div class="product-label-group" *ngIf="item?.discount_price != null">
+                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price)}}% Off </label>
+                        </div>
+                      </figure>
+                      <div class="product-details">
+                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
+                        <div class="ratings-container">
+                          <div class="ratings-full">
+                            <span class="ratings" style="width: 100%;"></span>
+                            <span class="tooltiptext tooltip-top"></span>
+                          </div>
+                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price != null">
+                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                          <del class="old-price">{{ item?.selling_price }} </del>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price == null">
+                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+<!--                <div class="product-wrap"  *ngFor="let item of hotDeals |slice:0:10">-->
+
+<!--                    <div class="product text-center">-->
+<!--                        <figure class="product-media">-->
+<!--                            <a [routerLink]="['/Shop/Products/', item.id]">-->
+<!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                    height="338" />-->
+<!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                    height="338" />-->
+<!--                            </a>-->
+<!--                            <div class="product-action-vertical">-->
+<!--                                <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+<!--                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+<!--                                    title="Add to wishlist"></a>-->
+<!--                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+<!--                                    title="Quickview"></a>-->
+<!--                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+<!--                                    title="Add to Compare"></a>-->
+<!--                            </div>-->
+<!--                        </figure>-->
+<!--                        <div class="product-details">-->
+<!--                            <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+<!--                            <div class="ratings-container">-->
+<!--                                <div class="ratings-full">-->
+<!--                                    <span class="ratings" style="width: 60%;"></span>-->
+<!--                                    <span class="tooltiptext tooltip-top"></span>-->
+<!--                                </div>-->
+<!--                                <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+<!--                            </div>-->
+<!--                            <div class="product-price">-->
+<!--                                <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <!-- <div class="product-wrap">
                         <div class="product text-center">
@@ -1619,42 +1656,79 @@
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
 
                     <!-- Most popular  -->
-
-                    <div class="product-wrap"  *ngFor="let item of featured |slice:0:10">
-
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a [routerLink]="['/Shop/Products/', item.id]">
-                                    <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                        height="338" />
-                                    <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                        height="338" />
-                                </a>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                        title="Add to wishlist"></a>
-                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                        title="Quickview"></a>
-                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                        title="Add to Compare"></a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 60%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">EGP{{item.selling_price}} </ins>
-                                </div>
-                            </div>
+                  <div class="product-wrap" *ngFor="let item of featured |slice:10:20">
+                    <div class="product text-center">
+                      <figure class="product-media">
+                        <a [routerLink]="['/Home/Products/', item.id]">
+                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
+                        </a>
+                        <div class="product-action-vertical">
+                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                             title="Add to wishlist"></a>
+                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                             title="Quickview"></a>
+                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                             title="Add to Compare"></a>
                         </div>
+                        <div class="product-label-group" *ngIf="item?.discount_price != null">
+                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price) }}% Off </label>
+                        </div>
+                      </figure>
+                      <div class="product-details">
+                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
+                        <div class="ratings-container">
+                          <div class="ratings-full">
+                            <span class="ratings" style="width: 100%;"></span>
+                            <span class="tooltiptext tooltip-top"></span>
+                          </div>
+                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price != null">
+                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                          <del class="old-price">{{ item?.selling_price }} </del>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price == null">
+                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+<!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:0:10">-->
+
+<!--                        <div class="product text-center">-->
+<!--                            <figure class="product-media">-->
+<!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
+<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                        height="338" />-->
+<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                        height="338" />-->
+<!--                                </a>-->
+<!--                                <div class="product-action-vertical">-->
+<!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+<!--                                        title="Add to wishlist"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+<!--                                        title="Quickview"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+<!--                                        title="Add to Compare"></a>-->
+<!--                                </div>-->
+<!--                            </figure>-->
+<!--                            <div class="product-details">-->
+<!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+<!--                                <div class="ratings-container">-->
+<!--                                    <div class="ratings-full">-->
+<!--                                        <span class="ratings" style="width: 60%;"></span>-->
+<!--                                        <span class="tooltiptext tooltip-top"></span>-->
+<!--                                    </div>-->
+<!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+<!--                                </div>-->
+<!--                                <div class="product-price">-->
+<!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <!--     <div class="product-wrap">
                         <div class="product text-center">
@@ -2009,42 +2083,80 @@
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
 
                     <!-- Featured -->
-
-                    <div class="product-wrap"  *ngFor="let item of featured |slice:10:20">
-
-                        <div class="product text-center">
-                            <figure class="product-media">
-                                <a [routerLink]="['/Shop/Products/', item.id]">
-                                    <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                        height="338" />
-                                    <img [src]="item?.product_thambnail" alt="Product" width="300"
-                                        height="338" />
-                                </a>
-                                <div class="product-action-vertical">
-                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                                        title="Add to wishlist"></a>
-                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                                        title="Quickview"></a>
-                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                                        title="Add to Compare"></a>
-                                </div>
-                            </figure>
-                            <div class="product-details">
-                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>
-                                <div class="ratings-container">
-                                    <div class="ratings-full">
-                                        <span class="ratings" style="width: 60%;"></span>
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div>
-                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>
-                                </div>
-                                <div class="product-price">
-                                    <ins class="new-price">EGP{{item.selling_price}} </ins>
-                                </div>
-                            </div>
+                  <div class="product-wrap" *ngFor="let item of featured |slice:20:30">
+                    <div class="product text-center">
+                      <figure class="product-media">
+                        <a [routerLink]="['/Home/Products/', item.id]">
+                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
+                        </a>
+                        <div class="product-action-vertical">
+                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                             title="Add to wishlist"></a>
+                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                             title="Quickview"></a>
+                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                             title="Add to Compare"></a>
                         </div>
+                        <div class="product-label-group" *ngIf="item?.discount_price != null">
+                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price) }}% Off </label>
+                        </div>
+                      </figure>
+                      <div class="product-details">
+                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
+                        <div class="ratings-container">
+                          <div class="ratings-full">
+                            <span class="ratings" style="width: 100%;"></span>
+                            <span class="tooltiptext tooltip-top"></span>
+                          </div>
+                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price != null">
+                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                          <del class="old-price">{{ item?.selling_price }} </del>
+                        </div>
+                        <div class="product-price" *ngIf="item?.discount_price == null">
+                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+<!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:10:20">-->
+
+<!--                        <div class="product text-center">-->
+<!--                            <figure class="product-media">-->
+<!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
+<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                        height="338" />-->
+<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+<!--                                        height="338" />-->
+<!--                                </a>-->
+<!--                                <div class="product-action-vertical">-->
+<!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+<!--                                        title="Add to wishlist"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+<!--                                        title="Quickview"></a>-->
+<!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+<!--                                        title="Add to Compare"></a>-->
+<!--                                </div>-->
+<!--                            </figure>-->
+<!--                            <div class="product-details">-->
+<!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+<!--                                <div class="ratings-container">-->
+<!--                                    <div class="ratings-full">-->
+<!--                                        <span class="ratings" style="width: 60%;"></span>-->
+<!--                                        <span class="tooltiptext tooltip-top"></span>-->
+<!--                                    </div>-->
+<!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+<!--                                </div>-->
+<!--                                <div class="product-price">-->
+<!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                    <!--   <div class="product-wrap">
                         <div class="product text-center">
@@ -2441,8 +2553,8 @@
 
         <div class="product-wrapper-1 appear-animate mb-5">
             <div class="title-link-wrapper pb-1 mb-4">
-                <h2 class="title ls-normal mb-0">Clothing & Apparel </h2>
-                <a href="shop-boxed-banner.html" class="font-size-normal font-weight-bold ls-25 mb-0">More
+                <h2 class="title ls-normal mb-0 text-capitalize">Operations rooms </h2>
+                <a routerLink="/" class="font-size-normal font-weight-bold ls-25 mb-0">More
                     Products <i class="w-icon-long-arrow-right"></i></a>
             </div>
             <div class="row">

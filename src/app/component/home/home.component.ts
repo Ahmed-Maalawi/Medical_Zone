@@ -1,19 +1,21 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/Home/home.service';
-Observable
+import {Product} from "../../models/product.model";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // featured: any;
-  Deals: any;
-  brands:any[] = [];
-  hotDeals: any[] = [];
+
+  Deals: Product[] = [];
+  brands: any[] = [];
+  hotDeals: Product[] = [];
+  featured: Product[] = [];
   sliders: any[] = [];
-  featured: any[] = [];
+  sec1: Product[] = [];
 
   constructor(private _HomeService: HomeService) {
     // this.getDeals();
@@ -22,13 +24,16 @@ export class HomeComponent implements OnInit {
     // this.getDeals();
 
     _HomeService.getDealsHot().subscribe(
-      (response) => { this.hotDeals = response.data.items});
+      (response) => { this.hotDeals = response.data.items}
+    );
 
     _HomeService.getSliders().subscribe(
-      (response) => {this.sliders = response.data.items;});
+      (response) => {this.sliders = response.data.items;}
+    );
 
-      _HomeService.getFeatured().subscribe(
-        (response) => {this.featured = response.data.items;});
+    _HomeService.getFeatured().subscribe(
+      (response) => {this.featured = response.data.items;}
+    );
 
 
   }
@@ -36,7 +41,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  calcDiscount(selling: any, discount: any): number
+  {
 
+    return Math.floor(( selling / discount )  / 100 * 100);
+  }
   getFeatured(): void
   {
     this._HomeService.getFeatured()
@@ -64,6 +73,16 @@ export class HomeComponent implements OnInit {
       },
       (error) => {
         console.log(error.error.error)
+      }
+    )
+  }
+
+  getFirst(): void
+  {
+    this._HomeService.getFirstSection()
+    .subscribe(
+      (response) => {
+        this.sec1 = response.data.items;
       }
     )
   }

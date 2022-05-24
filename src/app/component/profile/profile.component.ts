@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterService} from "../../services/Register/register.service";
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user.model";
 
 @Component({
   selector: 'app-profile',
@@ -7,17 +8,21 @@ import {RegisterService} from "../../services/Register/register.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user:any;
+  user: User|null = null;
 
-  constructor(private _RegisterService:RegisterService)
+  constructor(private _AuthService:AuthService)
   {
 
   }
 
 
   ngOnInit(): void {
-    this.user = this._RegisterService.currentUser;
+    this.user = this._AuthService.user;
     console.log(this.user)
   }
 
+  logoutBtn(): void
+  {
+    this._AuthService.logout();
+  }
 }

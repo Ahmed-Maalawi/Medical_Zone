@@ -1,0 +1,3 @@
+:is( button[disabled], input[disabled] ) {
+  opacity: .7;
+}

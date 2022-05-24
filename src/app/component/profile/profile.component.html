@@ -12,7 +12,7 @@
             <nav class="breadcrumb-nav">
                 <div class="container">
                     <ul class="breadcrumb">
-                        <li><a href="demo1.html">Home </a></li>
+                        <li><a routerLink="/">Home </a></li>
                         <li>My account </li>
                     </ul>
                 </div>
@@ -43,7 +43,7 @@
                                 <a href="wishlist.html"  class="nav-link">Wishlist </a>
                             </li>
                             <li class="nav-item">
-                                <a href="login.html"  class="nav-link">Logout </a>
+                                <a (click)="logoutBtn()"  class="nav-link">Logout </a>
                             </li>
                         </ul>
 
@@ -51,9 +51,9 @@
                             <div class="tab-pane active in" id="account-dashboard">
                                 <p class="greeting">
                                    Hello
-                                    <span class="text-dark font-weight-bold">{{user.name}} </span>
+                                    <span class="text-dark font-weight-bold">{{user?.name}} </span>
                                    (not
-                                    <span class="text-dark font-weight-bold">{{user.name}} </span>?
+                                    <span class="text-dark font-weight-bold">{{user?.name}} </span>?
                                     <a href="#" class="text-primary">Log out </a>)
                                 </p>
 
