@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   featured: Product[] = [];
   sliders: any[] = [];
   sec1: Product[] = [];
+  sec2: Product[] = [];
+  sec3: Product[] = [];
+  Blog: Product[] = [];
+
 
   constructor(private _HomeService: HomeService) {
     // this.getDeals();
@@ -35,6 +39,23 @@ export class HomeComponent implements OnInit {
       (response) => {this.featured = response.data.items;}
     );
 
+    _HomeService.getFirstSection().subscribe(
+      (response) => {this.sec1 = response.data.items;}
+    );
+
+    _HomeService.getSectSection().subscribe(
+      (response) => {this.sec2 = response.data.items;}
+    );
+
+    _HomeService.getTherdtSection().subscribe(
+      (response) => {this.sec3 = response.data.items;}
+    );
+
+    _HomeService.Blog().subscribe(
+      (response) => {this.Blog = response.data.values;}
+      );
+
+      
 
   }
 
@@ -77,15 +98,15 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  getFirst(): void
-  {
-    this._HomeService.getFirstSection()
-    .subscribe(
-      (response) => {
-        this.sec1 = response.data.items;
-      }
-    )
-  }
+  // getFirst(): void
+  // {
+  //   this._HomeService.getFirstSection()
+  //   .subscribe(
+  //     (response) => {
+  //       this.sec1 = response.data.items;
+  //     }
+  //   )
+  // }
 
 
   // getDeals(): void
