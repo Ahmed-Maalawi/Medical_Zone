@@ -15,7 +15,7 @@
 
                     <div class="container">
                         <figure class="slide-image skrollable slide-animate">
-                            <img [src]="slider.slider_img" class="w-100"  alt="Banner"
+                            <img [src]="slider.slider_img" class="w-100" alt="Banner"
                                 data-bottom-top="transform: translateY(10vh);"
                                 data-top-bottom="transform: translateY(-10vh);" width="474" height="397" />
                         </figure>
@@ -33,7 +33,7 @@
                            'duration': '1s',
                            'delay': '.4s'
                        }">
-                               {{slider.description}}
+                                {{slider.description}}
                             </h3>
                             <p class="font-weight-normal text-default slide-animate" data-animation-options="{
                            'name': 'fadeInRightShorter',
@@ -247,9 +247,10 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="product-details scrollable">
-                                                <h2 class="product-title mb-1"><a
-                                                        [routerLink]="['/Shop/Products/', item.id]">{{
-                                                        item.product_name_en}} </a></h2>
+                                                <h2 class="product-title mb-1">
+                                                    <a [routerLink]="['/Shop/Products/', item.id]">
+                                                        {{item.product_name_en}} </a>
+                                                    </h2>
 
                                                 <hr class="product-divider" />
 
@@ -333,7 +334,7 @@
                                         </div>
                                     </div>
                                 </div>
-<!--
+                                <!--
                                 <div class="swiper-slide">
                                     <div class="product product-single row">
                                         <div class="col-md-6">
@@ -522,9 +523,10 @@
                            }">
                                 <div class="swiper-wrapper row cols-lg-1 cols-md-3">
 
-                                    <div class="swiper-slide product-widget-wrap" >
+                                    <div class="swiper-slide product-widget-wrap">
 
-                                        <div class="product product-widget bb-no" *ngFor="let item of hotDeals | slice:3:6">
+                                        <div class="product product-widget bb-no"
+                                            *ngFor="let item of hotDeals | slice:3:6">
                                             <figure class="product-media">
                                                 <a [routerLink]="['/Shop/Products/', item.id]">
                                                     <img [src]="item?.product_thambnail" alt="Product" width="105"
@@ -600,7 +602,8 @@
 
                                     <div class="swiper-slide product-widget-wrap">
 
-                                        <div class="product product-widget bb-no" *ngFor="let item of hotDeals | slice:6:9">
+                                        <div class="product product-widget bb-no"
+                                            *ngFor="let item of hotDeals | slice:6:9">
                                             <figure class="product-media">
                                                 <a [routerLink]="['/Shop/Products/', item.id]">
                                                     <img [src]="item?.product_thambnail" alt="Product" width="105"
@@ -670,7 +673,8 @@
 
                                     <div class="swiper-slide product-widget-wrap">
 
-                                        <div class="product product-widget bb-no" *ngFor="let item of hotDeals | slice:9:12">
+                                        <div class="product product-widget bb-no"
+                                            *ngFor="let item of hotDeals | slice:9:12">
                                             <figure class="product-media">
                                                 <a [routerLink]="['/Shop/Products/', item.id]">
                                                     <img [src]="item?.product_thambnail" alt="Product" width="105"
@@ -946,7 +950,8 @@
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a [routerLink]="['/Home/Products/', item.id]">
-                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300"
+                                        height="338" />
                                 </a>
                                 <div class="product-action-vertical">
                                     <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
@@ -958,17 +963,20 @@
                                         title="Add to Compare"></a>
                                 </div>
                                 <div class="product-label-group" *ngIf="item?.discount_price != null">
-                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price)}}% Off </label>
+                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price,
+                                        item.discount_price)}}% Off </label>
                                 </div>
                             </figure>
                             <div class="product-details">
-                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]">
+                                        {{item?.product_name_en}} </a></h4>
                                 <div class="ratings-container">
                                     <div class="ratings-full">
                                         <span class="ratings" style="width: 100%;"></span>
                                         <span class="tooltiptext tooltip-top"></span>
                                     </div>
-                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews)
+                                    </a>
                                 </div>
                                 <div class="product-price" *ngIf="item?.discount_price != null">
                                     <ins class="new-price">EGP {{ item?.discount_price }} </ins>
@@ -1229,81 +1237,85 @@
 
 
                     <!-- Best Seller -->
-                  <div class="product-wrap" *ngFor="let item of hotDeals |slice:0:10">
-                    <div class="product text-center">
-                      <figure class="product-media">
-                        <a [routerLink]="['/Home/Products/', item.id]">
-                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
-                        </a>
-                        <div class="product-action-vertical">
-                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                             title="Add to wishlist"></a>
-                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                             title="Quickview"></a>
-                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                             title="Add to Compare"></a>
+                    <div class="product-wrap" *ngFor="let item of hotDeals |slice:0:10">
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a [routerLink]="['/Home/Products/', item.id]">
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300"
+                                        height="338" />
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                                        title="Add to wishlist"></a>
+                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                        title="Quickview"></a>
+                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                        title="Add to Compare"></a>
+                                </div>
+                                <div class="product-label-group" *ngIf="item?.discount_price != null">
+                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price,
+                                        item.discount_price)}}% Off </label>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]">
+                                        {{item?.product_name_en}} </a></h4>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width: 100%;"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews)
+                                    </a>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price != null">
+                                    <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                                    <del class="old-price">{{ item?.selling_price }} </del>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price == null">
+                                    <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product-label-group" *ngIf="item?.discount_price != null">
-                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price)}}% Off </label>
-                        </div>
-                      </figure>
-                      <div class="product-details">
-                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
-                        <div class="ratings-container">
-                          <div class="ratings-full">
-                            <span class="ratings" style="width: 100%;"></span>
-                            <span class="tooltiptext tooltip-top"></span>
-                          </div>
-                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price != null">
-                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
-                          <del class="old-price">{{ item?.selling_price }} </del>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price == null">
-                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-<!--                <div class="product-wrap"  *ngFor="let item of hotDeals |slice:0:10">-->
+                    <!--                <div class="product-wrap"  *ngFor="let item of hotDeals |slice:0:10">-->
 
-<!--                    <div class="product text-center">-->
-<!--                        <figure class="product-media">-->
-<!--                            <a [routerLink]="['/Shop/Products/', item.id]">-->
-<!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                    height="338" />-->
-<!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                    height="338" />-->
-<!--                            </a>-->
-<!--                            <div class="product-action-vertical">-->
-<!--                                <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
-<!--                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
-<!--                                    title="Add to wishlist"></a>-->
-<!--                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
-<!--                                    title="Quickview"></a>-->
-<!--                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
-<!--                                    title="Add to Compare"></a>-->
-<!--                            </div>-->
-<!--                        </figure>-->
-<!--                        <div class="product-details">-->
-<!--                            <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
-<!--                            <div class="ratings-container">-->
-<!--                                <div class="ratings-full">-->
-<!--                                    <span class="ratings" style="width: 60%;"></span>-->
-<!--                                    <span class="tooltiptext tooltip-top"></span>-->
-<!--                                </div>-->
-<!--                                <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
-<!--                            </div>-->
-<!--                            <div class="product-price">-->
-<!--                                <ins class="new-price">EGP{{item.selling_price}} </ins>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                    <!--                    <div class="product text-center">-->
+                    <!--                        <figure class="product-media">-->
+                    <!--                            <a [routerLink]="['/Shop/Products/', item.id]">-->
+                    <!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                    height="338" />-->
+                    <!--                                <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                    height="338" />-->
+                    <!--                            </a>-->
+                    <!--                            <div class="product-action-vertical">-->
+                    <!--                                <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+                    <!--                                <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+                    <!--                                    title="Add to wishlist"></a>-->
+                    <!--                                <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+                    <!--                                    title="Quickview"></a>-->
+                    <!--                                <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+                    <!--                                    title="Add to Compare"></a>-->
+                    <!--                            </div>-->
+                    <!--                        </figure>-->
+                    <!--                        <div class="product-details">-->
+                    <!--                            <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+                    <!--                            <div class="ratings-container">-->
+                    <!--                                <div class="ratings-full">-->
+                    <!--                                    <span class="ratings" style="width: 60%;"></span>-->
+                    <!--                                    <span class="tooltiptext tooltip-top"></span>-->
+                    <!--                                </div>-->
+                    <!--                                <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="product-price">-->
+                    <!--                                <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
 
-                <!-- <div class="product-wrap">
+                    <!-- <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -1338,7 +1350,7 @@
                             </div>
                         </div>
                     </div> -->
-<!--
+                    <!--
                     <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
@@ -1656,79 +1668,83 @@
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
 
                     <!-- Most popular  -->
-                  <div class="product-wrap" *ngFor="let item of featured |slice:10:20">
-                    <div class="product text-center">
-                      <figure class="product-media">
-                        <a [routerLink]="['/Home/Products/', item.id]">
-                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
-                        </a>
-                        <div class="product-action-vertical">
-                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                             title="Add to wishlist"></a>
-                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                             title="Quickview"></a>
-                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                             title="Add to Compare"></a>
+                    <div class="product-wrap" *ngFor="let item of featured |slice:10:20">
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a [routerLink]="['/Home/Products/', item.id]">
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300"
+                                        height="338" />
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                                        title="Add to wishlist"></a>
+                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                        title="Quickview"></a>
+                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                        title="Add to Compare"></a>
+                                </div>
+                                <div class="product-label-group" *ngIf="item?.discount_price != null">
+                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price,
+                                        item.discount_price) }}% Off </label>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]">
+                                        {{item?.product_name_en}} </a></h4>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width: 100%;"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews)
+                                    </a>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price != null">
+                                    <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                                    <del class="old-price">{{ item?.selling_price }} </del>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price == null">
+                                    <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product-label-group" *ngIf="item?.discount_price != null">
-                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price) }}% Off </label>
-                        </div>
-                      </figure>
-                      <div class="product-details">
-                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
-                        <div class="ratings-container">
-                          <div class="ratings-full">
-                            <span class="ratings" style="width: 100%;"></span>
-                            <span class="tooltiptext tooltip-top"></span>
-                          </div>
-                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price != null">
-                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
-                          <del class="old-price">{{ item?.selling_price }} </del>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price == null">
-                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-<!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:0:10">-->
+                    <!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:0:10">-->
 
-<!--                        <div class="product text-center">-->
-<!--                            <figure class="product-media">-->
-<!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
-<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                        height="338" />-->
-<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                        height="338" />-->
-<!--                                </a>-->
-<!--                                <div class="product-action-vertical">-->
-<!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
-<!--                                        title="Add to wishlist"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
-<!--                                        title="Quickview"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
-<!--                                        title="Add to Compare"></a>-->
-<!--                                </div>-->
-<!--                            </figure>-->
-<!--                            <div class="product-details">-->
-<!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
-<!--                                <div class="ratings-container">-->
-<!--                                    <div class="ratings-full">-->
-<!--                                        <span class="ratings" style="width: 60%;"></span>-->
-<!--                                        <span class="tooltiptext tooltip-top"></span>-->
-<!--                                    </div>-->
-<!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
-<!--                                </div>-->
-<!--                                <div class="product-price">-->
-<!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                        <div class="product text-center">-->
+                    <!--                            <figure class="product-media">-->
+                    <!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
+                    <!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                        height="338" />-->
+                    <!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                        height="338" />-->
+                    <!--                                </a>-->
+                    <!--                                <div class="product-action-vertical">-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+                    <!--                                        title="Add to wishlist"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+                    <!--                                        title="Quickview"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+                    <!--                                        title="Add to Compare"></a>-->
+                    <!--                                </div>-->
+                    <!--                            </figure>-->
+                    <!--                            <div class="product-details">-->
+                    <!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+                    <!--                                <div class="ratings-container">-->
+                    <!--                                    <div class="ratings-full">-->
+                    <!--                                        <span class="ratings" style="width: 60%;"></span>-->
+                    <!--                                        <span class="tooltiptext tooltip-top"></span>-->
+                    <!--                                    </div>-->
+                    <!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="product-price">-->
+                    <!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <!--     <div class="product-wrap">
                         <div class="product text-center">
@@ -2083,82 +2099,86 @@
                 <div class="row cols-xl-5 cols-md-4 cols-sm-3 cols-2">
 
                     <!-- Featured -->
-                  <div class="product-wrap" *ngFor="let item of featured |slice:20:30">
-                    <div class="product text-center">
-                      <figure class="product-media">
-                        <a [routerLink]="['/Home/Products/', item.id]">
-                          <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300" height="338" />
-                        </a>
-                        <div class="product-action-vertical">
-                          <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
-                          <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
-                             title="Add to wishlist"></a>
-                          <a href="#" class="btn-product-icon btn-quickview w-icon-search"
-                             title="Quickview"></a>
-                          <a href="#" class="btn-product-icon btn-compare w-icon-compare"
-                             title="Add to Compare"></a>
+                    <div class="product-wrap" *ngFor="let item of featured |slice:20:30">
+                        <div class="product text-center">
+                            <figure class="product-media">
+                                <a [routerLink]="['/Home/Products/', item.id]">
+                                    <img [src]="item?.product_thambnail" [alt]="item?.product_name_en" width="300"
+                                        height="338" />
+                                </a>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
+                                        title="Add to wishlist"></a>
+                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"
+                                        title="Quickview"></a>
+                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"
+                                        title="Add to Compare"></a>
+                                </div>
+                                <div class="product-label-group" *ngIf="item?.discount_price != null">
+                                    <label class="product-label label-discount">{{ calcDiscount(item.selling_price,
+                                        item.discount_price) }}% Off </label>
+                                </div>
+                            </figure>
+                            <div class="product-details">
+                                <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]">
+                                        {{item?.product_name_en}} </a></h4>
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" style="width: 100%;"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews)
+                                    </a>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price != null">
+                                    <ins class="new-price">EGP {{ item?.discount_price }} </ins>
+                                    <del class="old-price">{{ item?.selling_price }} </del>
+                                </div>
+                                <div class="product-price" *ngIf="item?.discount_price == null">
+                                    <ins class="new-price">EGP {{ item?.selling_price }} </ins>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product-label-group" *ngIf="item?.discount_price != null">
-                          <label class="product-label label-discount">{{ calcDiscount(item.selling_price, item.discount_price) }}% Off </label>
-                        </div>
-                      </figure>
-                      <div class="product-details">
-                        <h4 class="product-name"><a [routerLink]="['/Home/Products/', item.id]"> {{item?.product_name_en}} </a></h4>
-                        <div class="ratings-container">
-                          <div class="ratings-full">
-                            <span class="ratings" style="width: 100%;"></span>
-                            <span class="tooltiptext tooltip-top"></span>
-                          </div>
-                          <a [routerLink]="['/Home/Products/', item.id]" class="rating-reviews">(5 reviews) </a>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price != null">
-                          <ins class="new-price">EGP {{ item?.discount_price }} </ins>
-                          <del class="old-price">{{ item?.selling_price }} </del>
-                        </div>
-                        <div class="product-price" *ngIf="item?.discount_price == null">
-                          <ins class="new-price">EGP {{ item?.selling_price }} </ins>
-                        </div>
-                      </div>
                     </div>
-                  </div>
 
-<!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:10:20">-->
+                    <!--                    <div class="product-wrap"  *ngFor="let item of featured |slice:10:20">-->
 
-<!--                        <div class="product text-center">-->
-<!--                            <figure class="product-media">-->
-<!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
-<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                        height="338" />-->
-<!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
-<!--                                        height="338" />-->
-<!--                                </a>-->
-<!--                                <div class="product-action-vertical">-->
-<!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
-<!--                                        title="Add to wishlist"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
-<!--                                        title="Quickview"></a>-->
-<!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
-<!--                                        title="Add to Compare"></a>-->
-<!--                                </div>-->
-<!--                            </figure>-->
-<!--                            <div class="product-details">-->
-<!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
-<!--                                <div class="ratings-container">-->
-<!--                                    <div class="ratings-full">-->
-<!--                                        <span class="ratings" style="width: 60%;"></span>-->
-<!--                                        <span class="tooltiptext tooltip-top"></span>-->
-<!--                                    </div>-->
-<!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
-<!--                                </div>-->
-<!--                                <div class="product-price">-->
-<!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                        <div class="product text-center">-->
+                    <!--                            <figure class="product-media">-->
+                    <!--                                <a [routerLink]="['/Shop/Products/', item.id]">-->
+                    <!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                        height="338" />-->
+                    <!--                                    <img [src]="item?.product_thambnail" alt="Product" width="300"-->
+                    <!--                                        height="338" />-->
+                    <!--                                </a>-->
+                    <!--                                <div class="product-action-vertical">-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"-->
+                    <!--                                        title="Add to wishlist"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-quickview w-icon-search"-->
+                    <!--                                        title="Quickview"></a>-->
+                    <!--                                    <a href="#" class="btn-product-icon btn-compare w-icon-compare"-->
+                    <!--                                        title="Add to Compare"></a>-->
+                    <!--                                </div>-->
+                    <!--                            </figure>-->
+                    <!--                            <div class="product-details">-->
+                    <!--                                <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">{{item.product_name_en}} </a></h4>-->
+                    <!--                                <div class="ratings-container">-->
+                    <!--                                    <div class="ratings-full">-->
+                    <!--                                        <span class="ratings" style="width: 60%;"></span>-->
+                    <!--                                        <span class="tooltiptext tooltip-top"></span>-->
+                    <!--                                    </div>-->
+                    <!--                                    <a href="product-default.html" class="rating-reviews">(1 Reviews) </a>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="product-price">-->
+                    <!--                                    <ins class="new-price">EGP{{item.selling_price}} </ins>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
-                   <!--   <div class="product-wrap">
+                    <!--   <div class="product-wrap">
                         <div class="product text-center">
                             <figure class="product-media">
                                 <a href="product-default.html">
@@ -2574,6 +2594,7 @@
                 </div>
                 <!-- End of Banner -->
                 <div class="col-lg-9 col-sm-8">
+
                     <div class="swiper-container swiper-theme" data-swiper-options="{
                        'spaceBetween': 20,
                        'slidesPerView': 2,
@@ -2587,12 +2608,14 @@
                        }
                    }">
                         <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
+
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:0:2">
                                     <figure class="product-media">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo1/products/4-1.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2606,23 +2629,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Men’s
-                                                Clothing </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$23.99 </ins><del class="old-price">$25.68 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="#">
                                             <img src="assets/images/demos/demo1/products/4-5-1.jpg" alt="Product"
@@ -2642,7 +2668,7 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Best Travel
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">Best Travel
                                                 Bag </a>
                                         </h4>
                                         <div class="ratings-container">
@@ -2650,23 +2676,22 @@
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$25.68 </ins><del class="old-price">$28.99 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:2:4">
                                     <figure class="product-media">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo1/products/4-2-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/4-2-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2680,22 +2705,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Women’s Fashion
-                                                Handbag </a></h4>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$25.68 </ins><del class="old-price">$25.89 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="#">
                                             <img src="assets/images/demos/demo1/products/4-6.jpg" alt="Product"
@@ -2713,28 +2742,30 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Gray Leather
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">Gray Leather
                                                 Shoes </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$26.88 </ins><del class="old-price">$27.89 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:4:6">
                                     <figure class="product-media">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo1/products/4-3.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2748,22 +2779,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Black Winter
-                                                Skating </a></h4>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$40.86 </ins><del class="old-price">$45.89 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="#">
                                             <img src="assets/images/demos/demo1/products/4-7.jpg" alt="Product"
@@ -2781,7 +2816,7 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Men's Black
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">Men's Black
                                                 Wrist
                                                 Watch </a></h4>
                                         <div class="ratings-container">
@@ -2789,23 +2824,23 @@
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
                                             <ins class="new-price">$135.60 </ins><del class="old-price">$155.70 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:6:8">
                                     <figure class="product-media">
-                                        <a href="#">
-                                            <img src="assets/images/demos/demo1/products/4-4-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/4-4-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2819,22 +2854,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Sport Women's
-                                                Wear </a></h4>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$220.20 </ins><del class="old-price">$300.62 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="#">
                                             <img src="assets/images/demos/demo1/products/4-8.jpg" alt="Product"
@@ -2852,21 +2891,22 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Women’s Hiking
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">Women’s Hiking
                                                 Hat </a></h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
                                             <span class="price">$53.00 </span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -2878,7 +2918,7 @@
 
         <div class="product-wrapper-1 appear-animate mb-8">
             <div class="title-link-wrapper pb-1 mb-4">
-                <h2 class="title ls-normal mb-0">Consumer Electric </h2>
+                <h2 class="title ls-normal mb-0">Electronic </h2>
                 <a href="shop-boxed-banner.html" class="font-size-normal font-weight-bold ls-25 mb-0">More
                     Products <i class="w-icon-long-arrow-right"></i></a>
             </div>
@@ -2912,14 +2952,14 @@
                        }
                    }">
                         <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
+                     
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+                              
+                                <div class="product-wrap product text-center" *ngFor="let item of sec2 | slice:0:2">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/5-1-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/5-1-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -2931,28 +2971,28 @@
                                             <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                                 title="Add to Compare"></a>
                                         </div>
-                                        <div class="product-label-group">
-                                            <label class="product-label label-discount">6% Off </label>
-                                        </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Professional
-                                                Pixel
-                                                Camera </a></h4>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(5
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$215.68 </ins><del class="old-price">$230.45 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+                        
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/5-5.jpg" alt="Product"
@@ -2985,16 +3025,16 @@
                                             <ins class="new-price">$250.68 </ins>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+                
+                                <div class="product-wrap product text-center" *ngFor="let item of sec2 | slice:2:4">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/5-2-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/5-2-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3008,22 +3048,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Wash Machine </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(9
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$215.68 </ins>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/5-6.jpg" alt="Product"
@@ -3056,14 +3100,16 @@
                                             <ins class="new-price">$320.00 </ins>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+                             
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:10:12">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/5-3.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3075,28 +3121,28 @@
                                             <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                                 title="Add to Compare"></a>
                                         </div>
-                                        <div class="product-label-group">
-                                            <label class="product-label label-discount">10% Off </label>
-                                        </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">HD
-                                                Television </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$450.68 </ins><del class="old-price">$500.00 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/5-7.jpg" alt="Product"
@@ -3131,14 +3177,15 @@
                                             <ins class="new-price">$26.89 </ins><del class="old-price">$29.79 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+              
+                                <div class="product-wrap product text-center" *ngFor="let item of sec1 | slice:8:10">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/5-4.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3152,22 +3199,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Data Transformer
-                                                Tool </a></h4>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
+                                        </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(6
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$64.47 </ins>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/5-8.jpg" alt="Product"
@@ -3202,7 +3253,7 @@
                                             <ins class="new-price">$136.26 </ins><del class="old-price">$145.90 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -3278,11 +3329,12 @@
                    }">
                         <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+                      
+                                <div class="product-wrap product text-center" *ngFor="let item of sec3 | slice:0:2">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/6-1.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3296,22 +3348,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Home Sofa </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(5
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$75.99 </ins>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+                    
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/6-5.jpg" alt="Product"
@@ -3343,16 +3399,16 @@
                                             <ins class="new-price">$215.00 </ins>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+           
+                                <div class="product-wrap product text-center" *ngFor="let item of sec3 | slice:2:4">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/6-2-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/6-2-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3364,28 +3420,28 @@
                                             <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                                 title="Add to Compare"></a>
                                         </div>
-                                        <div class="product-label-group">
-                                            <label class="product-label label-discount">21% Off </label>
-                                        </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Kitchen
-                                                Table </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(9
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$75.50 </ins><del class="old-price">$95.68 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+                     
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/6-6.jpg" alt="Product"
@@ -3418,16 +3474,18 @@
                                             <ins class="new-price">$150.60 </ins>
                                         </div>
                                     </div>
-                                </div>
+           
+           
+                                </div> -->
+
                             </div>
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+       
+                                <div class="product-wrap product text-center" *ngFor="let item of sec3 | slice:4:6">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/6-3-1.jpg" alt="Product"
-                                                width="216" height="243" />
-                                            <img src="assets/images/demos/demo1/products/6-3-2.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3441,22 +3499,26 @@
                                         </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Table Lamp </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
                                                 <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(3
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$45.60 </ins>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+               
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/6-7.jpg" alt="Product"
@@ -3491,14 +3553,16 @@
                                             <ins class="new-price">$137.35 </ins><del class="old-price">$155.65 </del>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+
                             </div>
                             <div class="swiper-slide product-col">
-                                <div class="product-wrap product text-center">
+            
+                                <div class="product-wrap product text-center" *ngFor="let item of sec3 | slice:0:2">
                                     <figure class="product-media">
-                                        <a href="product-default.html">
-                                            <img src="assets/images/demos/demo1/products/6-4.jpg" alt="Product"
-                                                width="216" height="243" />
+                                        <a [routerLink]="['/Shop/Products/', item.id]">
+                                            <img [src]="item.product_thambnail" alt="Product" width="216"
+                                                height="243" />
                                         </a>
                                         <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-cart w-icon-cart"
@@ -3510,27 +3574,28 @@
                                             <a href="#" class="btn-product-icon btn-compare w-icon-compare"
                                                 title="Add to Compare"></a>
                                         </div>
-                                        <div class="product-label-group">
-                                            <label class="product-label label-discount">18% Off </label>
-                                        </div>
                                     </figure>
                                     <div class="product-details">
-                                        <h4 class="product-name"><a href="product-default.html">Latest Chair </a>
+                                        <h4 class="product-name"><a [routerLink]="['/Shop/Products/', item.id]">
+                                                {{item.product_name_en}}
+
+                                            </a>
                                         </h4>
                                         <div class="ratings-container">
                                             <div class="ratings-full">
-                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="ratings" style="width: 60%;"></span>
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div>
-                                            <a href="product-default.html" class="rating-reviews">(6
+                                            <a [routerLink]="['/Shop/Products/', item.id]" class="rating-reviews">(3
                                                 reviews) </a>
                                         </div>
                                         <div class="product-price">
-                                            <ins class="new-price">$70.00 </ins><del class="old-price">$85.00 </del>
+                                            <ins class="new-price">{{item.selling_price}} </ins><del class="old-price">${{item.discount_price}} </del>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-wrap product text-center">
+           
+                                <!-- <div class="product-wrap product text-center">
                                     <figure class="product-media">
                                         <a href="product-default.html">
                                             <img src="assets/images/demos/demo1/products/6-8-1.jpg" alt="Product"
@@ -3564,7 +3629,8 @@
                                             <ins class="new-price">$220.25 </ins>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+      
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -3595,9 +3661,10 @@
            }
        }">
             <div class="swiper-wrapper row gutter-no cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
-                <div  class="swiper-slide brand-col" *ngFor="let brand of brands">
+                <div class="swiper-slide brand-col" *ngFor="let brand of brands">
                     <figure class="brand-wrapper">
-                        <img [src]="brand?.brand_image" [alt]="brand?.brand_name_en" width="300" height="10" class="img-fluid mx-auto" style="width: 40% !important;" />
+                        <img [src]="brand?.brand_image" [alt]="brand?.brand_name_en" width="300" height="10"
+                            class="img-fluid mx-auto" style="width: 40% !important;" />
                     </figure>
                     <!-- <figure class="brand-wrapper">
                         <img src="assets/images/demos/demo1/brands/2.png" alt="Brand" width="410" height="186" />
@@ -3669,10 +3736,11 @@
                    }
                }">
                     <div class="swiper-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-1">
-                        <div class="swiper-slide post text-center overlay-zoom">
+            
+                        <div class="swiper-slide post text-center overlay-zoom" *ngFor="let post of Blog">
                             <figure class="post-media br-sm">
                                 <a href="post-single.html">
-                                    <img src="assets/images/demos/demo1/blogs/1.jpg" alt="Post" width="280" height="180"
+                                    <img [src]="" alt="Post" width="280" height="180"
                                         style="background-color: #4b6e91;" />
                                 </a>
                             </figure>
@@ -3688,7 +3756,7 @@
                                     ____ <i class="w-icon-long-arrow-right"></i></a>
                             </div>
                         </div>
-                        <div class="swiper-slide post text-center overlay-zoom">
+                        <!-- <div class="swiper-slide post text-center overlay-zoom">
                             <figure class="post-media br-sm">
                                 <a href="post-single.html">
                                     <img src="assets/images/demos/demo1/blogs/2.jpg" alt="Post" width="280" height="180"
@@ -3742,7 +3810,7 @@
                                 <a href="post-single.html" class="btn btn-link btn-dark btn-underline">Read
                                     ____ <i class="w-icon-long-arrow-right"></i></a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>

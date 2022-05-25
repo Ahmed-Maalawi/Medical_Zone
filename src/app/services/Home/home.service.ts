@@ -41,4 +41,18 @@ export class HomeService {
   {
     return this._HttpClient.get('http://medicazone.online/api/zone/getByCategory/11')
   }
+  getSectSection(): Observable<any>
+  {
+    return this._HttpClient.get('http://medicazone.online/api/zone/getByCategory/8')
+  }
+  getTherdtSection(): Observable<any>
+  {
+    return this._HttpClient.get('http://medicazone.online/api/zone/getByCategory/13')
+  }
+  Blog(): Observable<any>
+  {
+    return this._HttpClient.get('http://medicazone.online/api/zone/blog/category/post/2')
+  }
+
+
 }

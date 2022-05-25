@@ -2,6 +2,7 @@ import { CategoryService } from './../../services/Category/category.service';
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Category} from "../../models/category.model";
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+       /*=============================================
+      =    	   Toggle Active  	         =
+    =============================================*/
+    $('.category-toggle').on('click', function () {
+      $('.category-menu').slideToggle(500);
+      return false;
+    });
+
   }
 
   getCategories(): void
