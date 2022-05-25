@@ -1,16 +1,16 @@
 import {User} from "../../app/models/user.model";
-import { createReducer, on} from "@ngrx/store";
-import {loginFailure, loginSuccess, RegisterFailure, RegisterRequest, RegisterSuccess} from "../actions/auth.actions";
+import {createFeatureSelector, createReducer, createSelector, on} from "@ngrx/store";
+import {loginFailure, loginSuccess} from "../actions/auth.actions";
 
 export interface State {
-  token: string | null,
+  access_token: string | null,
   user: User | null,
   loginError?: any,
   isLoggedInProgress?: boolean,
 }
 
 export const initialState: State = {
-  token: null,
+  access_token: null,
   user: null,
 }
 
@@ -20,7 +20,7 @@ const _authReducer = createReducer(
   on(loginSuccess, (state, {loginSuccessResponse}) => {
     return {
       ...state,
-      token: loginSuccessResponse.accessToken,
+      access_token: loginSuccessResponse.access_token,
       user: loginSuccessResponse.user
     };
   }),
@@ -29,29 +29,29 @@ const _authReducer = createReducer(
     return {
       ...state,
       loginError: error,
-      token: null,
+      access_token: null,
       user: null
     };
   }),
 
   //------------------  Register Reducers -------------
-  on(RegisterSuccess, (state, { RegisterSuccessResponse }) => {
-    return {
-      ...state,
-      loginError: null,
-      token: RegisterSuccessResponse.accessToken,
-      user: RegisterSuccessResponse.user,
-    };
-  }),
-
-  on(RegisterFailure, (state, { error }) => {
-    return {
-      ...state,
-      loginError: error,
-      token: null,
-      user: null,
-    };
-  }),
+  // on(RegisterSuccess, (state, { RegisterSuccessResponse }) => {
+  //   return {
+  //     ...state,
+  //     loginError: null,
+  //     access_token: RegisterSuccessResponse.access_token,
+  //     user: RegisterSuccessResponse.user,
+  //   };
+  // }),
+  //
+  // on(RegisterFailure, (state, { error }) => {
+  //   return {
+  //     ...state,
+  //     loginError: error,
+  //     access_token: null,
+  //     user: null,
+  //   };
+  // }),
 
 );
 
@@ -59,3 +59,17 @@ const _authReducer = createReducer(
 export function authReducer(state: any, action: any) {
   return _authReducer(state, action);
 }
+
+//-------------- create selectors ------------------------------
+
+export const selectAuthState = createFeatureSelector<State>('auth');
+
+export const selectToken = createSelector(
+  selectAuthState,
+  (state) => state.access_token
+);
+
+export const selectUser = createSelector(
+  selectAuthState,
+  (state) => state.user
+);

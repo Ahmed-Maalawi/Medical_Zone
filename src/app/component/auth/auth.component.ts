@@ -53,7 +53,7 @@ export class AuthComponent implements OnInit {
 
     this._Store.dispatch(AuthActions.loginRequest({ credentials }));
 
-    console.log(credentials)
+    console.log(this.currentUser)
 
   }
 
@@ -66,7 +66,7 @@ export class AuthComponent implements OnInit {
       password_confirmation: RegisterData.value.password_confirmation,
     }
 
-    this._Store.dispatch(AuthActions.RegisterRequest({ credentials }));
+    // this._Store.dispatch(AuthActions.RegisterRequest({ credentials }));
 
     console.log(credentials)
 

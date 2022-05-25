@@ -2,6 +2,8 @@ import { CategoryService } from './../../services/Category/category.service';
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Category} from "../../models/category.model";
+import {Store} from "@ngrx/store";
+import * as fromAuth from './../../../store/reducers/auth.reducer';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +14,15 @@ export class HeaderComponent implements OnInit {
 
   categories: Array<Category> = [];
 
-  constructor(private CategoryService:CategoryService, private _AuthService:AuthService)
+  CurrentUser$ = this._Store.select(fromAuth.selectUser);
+
+
+
+  constructor(private CategoryService:CategoryService, private _AuthService:AuthService, private _Store:Store<fromAuth.State>)
   {
     this.getCategories();
+
+    console.log(this.CurrentUser$);
   }
 
   ngOnInit(): void {

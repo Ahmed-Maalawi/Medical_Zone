@@ -22,9 +22,9 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'About-Us', component: AboutComponent},
       {path: 'Contact', component: ContactComponent},
-      {path: 'Cart', component: CartComponent, canActivate:[AuthGuard]},
-      {path: 'Wishlist', component: WishlistComponent, canActivate:[AuthGuard]},
-      {path: 'authentication', component: AuthComponent, canActivate:[SecureInnerPagesGuard]},
+      {path: 'Cart', component: CartComponent, }, //canActivate:[AuthGuard]
+      {path: 'Wishlist', component: WishlistComponent, }, //canActivate:[AuthGuard]
+      {path: 'authentication', component: AuthComponent, }, //canActivate:[SecureInnerPagesGuard]
     ],
   },
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
       {path: 'Products/:id', component: ItemDetailsComponent},
     ]
   },
-  {path: 'My-Account', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'My-Account', component: ProfileComponent, }, //canActivate:[AuthGuard]
   {path: '**', component: Page404Component}
 ];
 

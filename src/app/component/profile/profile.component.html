@@ -11,7 +11,7 @@
             <!-- Start of Breadcrumb -->
             <nav class="breadcrumb-nav">
                 <div class="container">
-                    <ul class="breadcrumb">
+                    <ul *ngIf="!(user$ | async)" class="breadcrumb">
                         <li><a routerLink="/">Home </a></li>
                         <li>My account </li>
                     </ul>
@@ -51,9 +51,9 @@
                             <div class="tab-pane active in" id="account-dashboard">
                                 <p class="greeting">
                                    Hello
-                                    <span class="text-dark font-weight-bold">{{user?.name}} </span>
+                                    <span class="text-dark font-weight-bold">{{user$ | async }} </span>
                                    (not
-                                    <span class="text-dark font-weight-bold">{{user?.name}} </span>?
+                                    <span class="text-dark font-weight-bold">{{user$ | async}} </span>?
                                     <a href="#" class="text-primary">Log out </a>)
                                 </p>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
-import {User} from "../../models/user.model";
+import * as fromAuth from "../../../store/reducers/auth.reducer";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-profile',
@@ -8,17 +9,16 @@ import {User} from "../../models/user.model";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: User|null = null;
 
-  constructor(private _AuthService:AuthService)
+  user$ = this._store.select(fromAuth.selectUser);
+  constructor(private _AuthService:AuthService, private _store:Store<fromAuth.State>)
   {
-
+    console.log(this.user$)
   }
 
 
   ngOnInit(): void {
-    this.user = this._AuthService.user;
-    console.log(this.user)
+
   }
 
   logoutBtn(): void
