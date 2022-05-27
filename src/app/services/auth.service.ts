@@ -19,7 +19,7 @@ export class AuthService {
     return this._HttpClient.post('https://medicazone.online/api/auth/login', LoginData)
   }
 
-  Register(RegisterData:FormGroup): Observable<any>
+  Register(RegisterData:object): Observable<any>
   {
     return this._HttpClient.post('https://medicazone.online/api/auth/register', RegisterData)
   }

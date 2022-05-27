@@ -1,6 +1,6 @@
 import {User} from "../../app/models/user.model";
 import {createFeatureSelector, createReducer, createSelector, on} from "@ngrx/store";
-import {loginFailure, loginSuccess} from "../actions/auth.actions";
+import {loginFailure, loginSuccess, RegisterFailure, RegisterSuccess} from "../actions/auth.actions";
 
 export interface State {
   access_token: string | null,
@@ -35,23 +35,23 @@ const _authReducer = createReducer(
   }),
 
   //------------------  Register Reducers -------------
-  // on(RegisterSuccess, (state, { RegisterSuccessResponse }) => {
-  //   return {
-  //     ...state,
-  //     loginError: null,
-  //     access_token: RegisterSuccessResponse.access_token,
-  //     user: RegisterSuccessResponse.user,
-  //   };
-  // }),
-  //
-  // on(RegisterFailure, (state, { error }) => {
-  //   return {
-  //     ...state,
-  //     loginError: error,
-  //     access_token: null,
-  //     user: null,
-  //   };
-  // }),
+  on(RegisterSuccess, (state, { RegisterSuccessResponse }) => {
+    return {
+      ...state,
+      loginError: null,
+      access_token: RegisterSuccessResponse.access_token,
+      user: RegisterSuccessResponse.user,
+    };
+  }),
+
+  on(RegisterFailure, (state, { error }) => {
+    return {
+      ...state,
+      loginError: error,
+      access_token: null,
+      user: null,
+    };
+  }),
 
 );
 
@@ -60,7 +60,7 @@ export function authReducer(state: any, action: any) {
   return _authReducer(state, action);
 }
 
-//-------------- create selectors ------------------------------
+//-------------- create Login selectors ------------------------------
 
 export const selectAuthState = createFeatureSelector<State>('auth');
 

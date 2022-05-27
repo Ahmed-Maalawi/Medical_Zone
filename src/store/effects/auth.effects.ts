@@ -5,6 +5,7 @@ import {catchError, exhaustMap, map, of, tap} from "rxjs";
 import {AuthService} from "../../app/services/auth.service";
 import {Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
+import {RegisterSuccess} from "./../actions/auth.actions";
 
 
 
@@ -17,6 +18,8 @@ export class AuthEffects {
     private _CookieService:CookieService
   ) {}
 
+
+  //---------------------------- loginEffect -----------------------------
   loginRequest$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.loginRequest),
@@ -46,4 +49,35 @@ export class AuthEffects {
     { dispatch: false }
   );
 
+//---------------------------- RegisterEffects -----------------------------
+  registerRequest$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AuthActions.RegisterRequest),
+      exhaustMap((action) =>
+        this._AuthService
+          .Register(action.credentials)
+          .pipe(
+            map((RegisterSuccessResponse) =>
+              AuthActions.RegisterSuccess({RegisterSuccessResponse})
+            ),
+            catchError((error) => of(AuthActions.RegisterFailure({error})))
+          )
+      )
+    )
+  );
+
+
+
+  registerSuccess$ = createEffect(() =>
+      this.actions$.pipe(
+        ofType(AuthActions.RegisterSuccess),
+        tap(({ RegisterSuccessResponse }) => {
+          this._Router.navigateByUrl('/');
+          window.alert('Login successfully ' + 'Welcome ' + RegisterSuccessResponse.user.name);
+          this._CookieService.set('user_info', RegisterSuccessResponse.user);
+          this._CookieService.set('user_token', RegisterSuccessResponse.access_token);
+        })
+      ),
+    { dispatch: false }
+  );
 }

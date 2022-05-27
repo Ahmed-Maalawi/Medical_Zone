@@ -2,7 +2,7 @@
  <header class="header">
     <div class="header-top">
         <div class="container">
-            <div class="header-left"> {{ CurrentUser$ | async}}
+            <div class="header-left">
                 <p class="welcome-msg">Welcome to Wolmart Store message or remove it!</p>
             </div>
             <div class="header-right">
@@ -192,7 +192,7 @@
                         </a>
 
                         <div class="dropdown-box">
-                            <ul class="menu vertical-menu category-menu">
+                            <ul class="menu vertical-menu category-menu d-none">
                                 <li *ngFor="let categry of categories">
                                     <a href="shop-fullwidth-banner.html">
                                         {{categry.category_name_en}}

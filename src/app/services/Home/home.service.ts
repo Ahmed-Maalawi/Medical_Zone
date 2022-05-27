@@ -49,10 +49,7 @@ export class HomeService {
   {
     return this._HttpClient.get('http://medicazone.online/api/zone/getByCategory/13')
   }
-  Blog(): Observable<any>
-  {
-    return this._HttpClient.get('http://medicazone.online/api/zone/blog/category/post/2')
-  }
+
 
 
 }

@@ -2,6 +2,8 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/Home/home.service';
 import {Product} from "../../models/product.model";
+import {BlogService} from "../../services/blog.service";
+import {Post} from "../../models/post.model";
 
 @Component({
   selector: 'app-home',
@@ -18,10 +20,10 @@ export class HomeComponent implements OnInit {
   sec1: Product[] = [];
   sec2: Product[] = [];
   sec3: Product[] = [];
-  Blog: Product[] = [];
+  Blog: Post[] = [];
 
 
-  constructor(private _HomeService: HomeService) {
+  constructor(private _HomeService: HomeService, private _BlogService: BlogService) {
     // this.getDeals();
     this.getFeatured();
    this.getBrands();
@@ -51,11 +53,12 @@ export class HomeComponent implements OnInit {
       (response) => {this.sec3 = response.data.items;}
     );
 
-    _HomeService.Blog().subscribe(
-      (response) => {this.Blog = response.data.values;}
-      );
+    _BlogService.Blog().subscribe(
+      (response) => { this.Blog = response.data.items[0].blog_posts},
+      (error) => console.log(error)
+    )
 
-      
+
 
   }
 
@@ -65,7 +68,9 @@ export class HomeComponent implements OnInit {
   calcDiscount(selling: any, discount: any): number
   {
 
-    return Math.floor(( selling / discount )  / 100 * 100);
+    let value = ((selling - discount) / selling) * 100;
+    return Math.round(value);
+    // return Math.floor(( selling / discount )  / 100 * 100);
   }
   getFeatured(): void
   {

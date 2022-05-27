@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   categories: Array<Category> = [];
 
+  CurrentUser$ = null;
   constructor(private CategoryService:CategoryService, private _AuthService:AuthService)
   {
     this.getCategories();
